@@ -396,7 +396,7 @@ section { padding: clamp(64px, 10vw, 120px) 0; }
 }
 
 /* ── Now Showing ───────────────────────────────────────────────── */
-.now-showing { padding: clamp(48px, 8vw, 96px) 0; }
+.now-showing { padding: clamp(40px, 5vw, 64px) 0; }
 .section-header {
   display: flex;
   align-items: flex-end;

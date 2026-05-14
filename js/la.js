@@ -66,10 +66,10 @@
 
     fadeEls.forEach(el => observer.observe(el));
 
-    // Fallback: force visible after 1.5s in case observer doesn't fire
+    // Fallback: force visible after 300ms in case observer doesn't fire
     setTimeout(() => {
       fadeEls.forEach(el => el.classList.add('visible'));
-    }, 1500);
+    }, 300);
   }
 
   /* ── Scroll track arrows ───────────────────────────────────── */
