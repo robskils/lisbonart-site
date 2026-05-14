@@ -55,11 +55,21 @@
           observer.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    fadeEls.forEach((el, i) => {
-      el.style.transitionDelay = (i * 0.07) + 's';
-      observer.observe(el);
+    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+
+    // Stagger resets per section so delays don't compound across the whole page
+    document.querySelectorAll('section, .artist-spotlight, .events-section, .trust-pillars, .email-capture, .browse-bar').forEach(section => {
+      section.querySelectorAll('.fade-up').forEach((el, i) => {
+        el.style.transitionDelay = (i * 0.08) + 's';
+      });
     });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Fallback: force visible after 1.5s in case observer doesn't fire
+    setTimeout(() => {
+      fadeEls.forEach(el => el.classList.add('visible'));
+    }, 1500);
   }
 
   /* ── Scroll track arrows ───────────────────────────────────── */
